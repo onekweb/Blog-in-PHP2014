@@ -1,9 +1,13 @@
+<?php
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>Blog in PHP 2014</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    <?php include("stylesheet.php");?>
 </head>
 <body>
     <!--#container-->
@@ -40,26 +44,10 @@
                  </p>
             </div>
         <!--end #content-top-->
-        
-        <!--#content-bottom-->
-        <div id="content-botton">
-            <h3 class="h3-text">
-                <p>about me</p>
-            </h3>
-            <h3 class="h3-text">
-                <p>contact</p>
-            </h3>
-            <h3 class="h3-text">
-                <p>Onekblog</p>
-            </h3>
-          
-        <!--end #content-bottom-->   
-        </div>
+     
         
         <!--#footer-->
-        <div id="footer">
-            <p>&copy;2014| Design by Mario Onekanda | Email <a href="mailto:mario.onekanda@gmail.com">mario.onekanda@gmail.com</a></p>
-        </div>
+                <?php include("footer.php");?>
         <!--end #footer -->
         
         <!--end #content-->    

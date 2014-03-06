@@ -1,0 +1,177 @@
+body{
+    font-family: arial, helvetica, sans-serif;
+    font:12px;
+    margin: 0;
+    padding: 0;    
+}
+
+#container
+{
+    width: 960px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0px 10px 0px 10px;
+    background: #999;
+    color: #fff;  
+}
+
+#head
+{
+    width: 960px;
+    height: 50px;
+    background: #0085ce;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#logo
+{
+    float: left;
+    height: auto;
+    margin: auto;
+    width: auto;
+    line-height: 58px;
+    padding-left: 25px;
+}
+
+#logo a
+{
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+#logo a:hover
+{
+    
+    color: #000;
+    text-decoration:  underline;
+}
+
+#mainmenu
+{
+    float: right;
+    height: auto;
+    margin: 0 auto;
+    width: auto;
+    position: relative;
+    right: 172px
+ 
+}
+#mainmenu li
+{
+    height: auto;
+    width: auto;
+    margin: auto;
+    padding: 12px;
+    list-style-type: none;
+    display: inline;   
+}
+
+#mainmenu li a
+{
+    margin: 0;
+    padding-left: 65px;
+    padding-right: 0;
+    text-decoration: none;
+    color: #000;
+}
+
+#mainmenu li a:hover
+
+{
+   text-decoration: underline;
+   color: #fff;
+}
+
+
+body {
+    font-family: arial,helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#container {
+    background: none repeat scroll 0 0 #999999;
+    color: #FFFFFF;
+    height: auto;
+    margin: 0 auto;
+    padding: 0px 10px 0px 10px;
+    width: 960px;
+}
+#head {
+    background: none repeat scroll 0 0 #0085CE;
+    height: 50px;
+    margin: 0 auto;
+    padding: 0;
+    width: 960px;
+}
+#logo {
+    float: left;
+    height: auto;
+    line-height: 58px;
+    margin: auto;
+    padding-left: 25px;
+    width: auto;
+}
+#logo a {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#logo a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+#mainmenu {
+    float: right;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    right: 172px;
+    width: auto;
+}
+#mainmenu li {
+    display: inline;
+    height: auto;
+    list-style-type: none;
+    margin: auto;
+    padding: 12px;
+    width: auto;
+}
+#mainmenu li a {
+    color: #000000;
+    margin: 0;
+    padding-left: 65px;
+    padding-right: 0;
+    text-decoration: none;
+}
+#mainmenu li a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+#footer {
+    background:  #0085CE;
+    height: 41px;
+    margin: 0;
+    padding: 0;
+    width: 960px;
+}
+#footer p {
+    text-align: center;
+    line-height: 36px;
+}
+
+#footer p a
+{
+    color: #fff;
+}
+
+#footer p a:hover
+{
+    color: #000;
+    text-decoration: none;
+}

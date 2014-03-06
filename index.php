@@ -1,9 +1,13 @@
+<?php
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>Blog in PHP 2014</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
     <!--#container-->
@@ -19,8 +23,8 @@
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="includes/about.php">About</a></li>
-                    <li><a href="includes/login.php">Loginfi</a></li>
-                    <li><a href="includes/contact.php">COntact</a></li>
+                    <li><a href="includes/login.php">Login</a></li>
+                    <li><a href="includes/contact.php">Contact</a></li>
                 </ul>
             <!--#end menu-->    
             </div>        
@@ -31,7 +35,7 @@
         <div id="content">
             <!--#content-top-->
             <div id="content-top">
-                <h1>About us</h1>
+                <h1>Welcome to my blog</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet felis orci. Nulla justo tortor, congue in augue vel,
                 placerat pellentesque est. Quisque et consectetur nisl. Nulla facilisi. Proin id rutrum nulla
                 </p>
@@ -41,25 +45,9 @@
             </div>
         <!--end #content-top-->
         
-        <!--#content-bottom-->
-        <div id="content-botton">
-            <h3 class="h3-text">
-                <p>about me</p>
-            </h3>
-            <h3 class="h3-text">
-                <p>contact</p>
-            </h3>
-            <h3 class="h3-text">
-                <p>Onekblog</p>
-            </h3>
-          
-        <!--end #content-bottom-->   
-        </div>
         
         <!--#footer-->
-        <div id="footer">
-            <p>&copy;2014| Design by Mario Onekanda | Email <a href="mailto:mario.onekanda@gmail.com">mario.onekanda@gmail.com</a></p>
-        </div>
+       <?php include("includes/footer.php");?>
         <!--end #footer -->
         
         <!--end #content-->    

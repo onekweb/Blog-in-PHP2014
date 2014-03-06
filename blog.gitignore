@@ -1,3 +1,5 @@
-# My ignore files
-*.komodoproject 
-
+# generic files to ignore
+2.
+*~
+3.
+*.komodoproject
