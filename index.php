@@ -1,6 +1,37 @@
+<?php session_start(); ?>
+<?php include("includes/error-msg.php");?>
 <?php
-ini_set('display_errors', 1); 
-error_reporting(E_ALL);
+if(isset($_POST['submit']))
+{
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    //Include connection
+    include("connection/db.php");
+    if(empty($username)){
+        echo "Please enter your username";
+    }elseif(empty($password)){
+        echo "Please enter your password";
+    }
+    
+    else{
+   
+        $username  = strip_tags($username);
+        $username = $db->real_escape_string($username);
+        $password  = strip_tags($password);
+        $password = $db->real_escape_string($password);
+        $password = md5($password);
+        $query = $db->query("SELECT id, username FROM users WHERE username='$username' AND password='$password'")or die("error");
+        if($query->num_rows ===1){
+            while($row = $query->fetch_object()){
+            $_SESSION['id'] = $row->id;
+            header('Location: includes/login.php');
+            exit();
+            }
+        }else{
+            echo "The username doesn't exit";   
+        }
+    }
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     
@@ -10,48 +41,23 @@ error_reporting(E_ALL);
     <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
-    <!--#container-->
-    <div id="container">
-        
-        <!--#head-->
-        <div id="head">
-            <!--#logo-->
-            <div id="logo"><a href="index.php">Onekblog</a></div>
-            <!--#end logo-->
-            <!--#menu-->
-            <div id="mainmenu">
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="includes/about.php">About</a></li>
-                    <li><a href="includes/login.php">Login</a></li>
-                    <li><a href="includes/contact.php">Contact</a></li>
-                </ul>
-            <!--#end menu-->    
-            </div>        
-        </div>
-        <!--end head-->
-        
-        <!--#content-->
-        <div id="content">
-            <!--#content-top-->
-            <div id="content-top">
-                <h1>Welcome to my blog</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet felis orci. Nulla justo tortor, congue in augue vel,
-                placerat pellentesque est. Quisque et consectetur nisl. Nulla facilisi. Proin id rutrum nulla
-                </p>
-                 <p>Aliquam pretium quam eleifend augue iaculis, id imperdiet velit venenatis. Curabitur porttitor magna vel dui vulputate, ac mattis erat vehicula.
-                    Aliquam pretium quam eleifend augue iaculis, id imperdiet velit venenatis. Curabitur porttitor magna vel dui vulputate, ac mattis erat vehicula.
-                 </p>
-            </div>
-        <!--end #content-top-->
-        
-        
-        <!--#footer-->
-       <?php include("includes/footer.php");?>
-        <!--end #footer -->
-        
-        <!--end #content-->    
-        </div>
+            <!--#form-->
+                <form action="index.php" method="post" id="myform">
+                    <h1>Welcome to my Onekblog</h1>
+                    <p>
+                        <label>Username</label>
+                        <input type="name" name="username" class="myinput"/>
+                    </p>
+                    <p>
+                        <label>Password</label>
+                        <input type="password" name="password" class="myinput"/>
+                    </p>
+                    <p>
+                        <input type="submit" name="submit" value="Login" class="submitbtn"/>
+                    </p>
+                                 
+                </form>
+            <!--end #form--> 
     </div>
 </body>
 </html>

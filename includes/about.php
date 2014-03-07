@@ -1,7 +1,4 @@
-<?php
-ini_set('display_errors', 1); 
-error_reporting(E_ALL);
-?>
+<?php require_once("error-msg.php");?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -14,21 +11,7 @@ error_reporting(E_ALL);
     <div id="container">
         
         <!--#head-->
-        <div id="head">
-            <!--#logo-->
-            <div id="logo"><a href="../index.php">Onekblog</a></div>
-            <!--#end logo-->
-            <!--#menu-->
-            <div id="mainmenu">
-                <ul>
-                    <li><a href="../index.php">Home</a></li>
-                    <li><a href="about.php">About</a></li>
-                     <li><a href="login.php">Login</a></li> 
-                    <li><a href="contact.php">Contact</a></li>
-                </ul>
-            <!--#end menu-->    
-            </div>        
-        </div>
+        <?php include("head.php");?>
         <!--end head-->
         
         <!--#content-->

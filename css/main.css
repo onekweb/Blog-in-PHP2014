@@ -2,7 +2,54 @@ body{
     font-family: arial, helvetica, sans-serif;
     font:12px;
     margin: 0;
-    padding: 0;    
+    padding: 0;
+    color: #000;
+}
+
+
+
+#myform
+{
+    width: 500px;
+    height: auto;
+    background: #999;
+    position: relative;
+    top: 100px;
+    margin: auto;
+    padding: 10px;
+}
+
+#myform h1
+{
+    color: #0085ce;
+    font-size: 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#myform p
+{
+    color: #fff;
+}
+
+.error-msg
+{
+    color: "red;";   
+}
+
+.myinput
+{
+    width: 151px;
+    margin: 3px;
+}
+
+.submitbtn
+{
+    background: #000;
+    color: #fff;
+    width: 96px;
+    height: 38px;
+    border: none;   
 }
 
 #container
