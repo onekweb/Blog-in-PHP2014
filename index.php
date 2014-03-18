@@ -12,25 +12,23 @@ if(isset($_POST['submit']))
     }elseif(empty($password)){
         echo "Please enter your password";
     }
-    
-    else{
-   
-        $username  = strip_tags($username);
-        $username = $db->real_escape_string($username);
-        $password  = strip_tags($password);
-        $password = $db->real_escape_string($password);
-        $password = md5($password);
-        $query = $db->query("SELECT id, username FROM users WHERE username='$username' AND password='$password'")or die("error");
-        if($query->num_rows ===1){
-            while($row = $query->fetch_object()){
-            $_SESSION['id'] = $row->id;
-            header('Location: includes/login.php');
-            exit();
-            }
-        }else{
-            echo "The username doesn't exit";   
+    else{   
+    $username  = strip_tags($username);
+    $username = $db->real_escape_string($username);
+    $password  = strip_tags($password);
+    $password = $db->real_escape_string($password);
+    $password = md5($password);
+    $query = $db->query("SELECT id, username FROM users WHERE username='$username' AND password='$password'")or die("error");
+    if($query->num_rows ===1){
+        while($row = $query->fetch_object()){
+        $_SESSION['id'] = $row->id;
+        header('Location: includes/login.php');
+        exit();
         }
+    }else{
+        echo "The username doesn't exit";   
     }
+}
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

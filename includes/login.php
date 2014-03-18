@@ -46,7 +46,7 @@ if(!isset($_SESSION['id'])){
                     </tr>
                 </table>
                 <ul>
-                    <li><a href="#">Create new post</a></li>
+                    <li><a href="new_post.php">Create new post</a></li>
                     <li><a href="#">Delete post</a></li>
                     <li><a href="#">Update post</a></li>
                 </ul>
