@@ -1,7 +1,7 @@
 <?php session_start();?>
 <?php require_once("error-msg.php");
 
-if(!isset($_SESSION['id'])){ 
+if(!isset($_SESSION['user_id'])){ 
     header("Location:../index.php");
     exit();
 }
@@ -33,7 +33,7 @@ if(!isset($_SESSION['id'])){
         <div id="content">
             <!--#content-top-->
             <div id="content-top">
-                <h1>Welcome <?php //echo $_SESSION['id']; ?></h1>
+                <h1>Welcome <?php echo $_SESSION['user_id']; ?></h1>
                 <table>
                     <tr>
                         <td>Total Blog Post</td>

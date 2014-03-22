@@ -18,10 +18,10 @@ if(isset($_POST['submit']))
     $password  = strip_tags($password);
     $password = $db->real_escape_string($password);
     $password = md5($password);
-    $query = $db->query("SELECT id, username FROM users WHERE username='$username' AND password='$password'")or die("error");
+    $query = $db->query("SELECT user_id, username FROM users WHERE username='$username' AND password='$password'")or die("error");
     if($query->num_rows ===1){
         while($row = $query->fetch_object()){
-        $_SESSION['id'] = $row->id;
+        $_SESSION['user_id'] = $row->user_id;
         header('Location: includes/login.php');
         exit();
         }

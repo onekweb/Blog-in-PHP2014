@@ -1,7 +1,7 @@
 <?php
 session_start();
     include("../connection/db.php");
-    if(!isset($_SESSION['id'])){
+    if(!isset($_SESSION['user_id'])){
         header("Location: ../index.php");
         exit();
     }
@@ -13,12 +13,11 @@ session_start();
         $category = $_POST['category'];
         $body = $db->real_escape_string($body);       
         $title = $db->real_escape_string($title);
-        $user_id = $_SESSION['id'];
-        $date = date("Y-m-d G:i:s");
+        $user_id = $_SESSION['user_id'];
+        $date = date('Y-m-d G:i:s');
         $body = htmlentities($body);
-        
         if($title && $body && $category){
-            $query1 = $db->query("INSERT INTO posts('id', 'title', 'body', 'category_id', 'posted') VALUES($user_id, $title, $body, $category, $date)");            
+            $query1 = $db->query("INSERT INTO posts('user_id', 'title', 'body', 'category_id', 'posted') VALUES('$user_id', '$title', '$body', '$category', '$date')")or die(mysql_error());                	
             if($query1){
             echo "Add post";
             }else{
