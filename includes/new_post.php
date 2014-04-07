@@ -1,24 +1,24 @@
 <?php
 session_start();
     include("../connection/db.php");
-    if(!isset($_SESSION['id'])){
+    if(!isset($_SESSION['user_id'])){
         header("Location: ../index.php");
         exit();
     }
-
-    if(isset($_POST['submit'])){
+   if(isset($_POST['submit'])){
         //Get data
         $title = $_POST['title'];
         $body = $_POST['body'];
         $category = $_POST['category'];
         $body = $db->real_escape_string($body);       
         $title = $db->real_escape_string($title);
-        $user_id = $_SESSION['id'];
+        $user_id = $_SESSION['user_id'];
         $date = date("Y-m-d G:i:s");
         $body = htmlentities($body);
         
         if($title && $body && $category){
-            $query1 = $db->query("INSERT INTO posts('id', 'title', 'body', 'category_id', 'posted') VALUES($user_id, $title, $body, $category, $date)");            
+            //$query1 = $db->query("INSERT INTO posts('user_id', 'title', 'body', 'category_id', 'posted') VALUES('$user_id', '$title', '$body', '$category', '$date')") or die("Mysql error");                        
+            $query1 = $db->query("INSERT INTO `posts`(`user_id`, `title`, `body`, `category_id`, `posted`) VALUES ('$user_id','$title','$body','$category','$date')") or die("error");
             if($query1){
             echo "Add post";
             }else{
@@ -28,11 +28,7 @@ session_start();
             echo "Missing information";
     }
     }
-    
-
 ?>
-
-
 <?php require_once("error-msg.php");?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     
@@ -43,8 +39,7 @@ session_start();
 </head>
 <body>
     <!--#container-->
-    <div id="container">
-        
+    <div id="container">      
         <!--#head-->
         <?php include("head.php");?>
         <!--end head-->
@@ -66,8 +61,7 @@ session_start();
                         $query = $db->query("SELECT * FROM categories");
                         while($row = $query->fetch_object()){
                             echo "<option value='".$row->category_id ."'>".$row->category."</option>";
-                        }
-                        
+                        }                        
                         ?>
                     </select>
                     </br>
@@ -76,8 +70,7 @@ session_start();
                 </form>
             </div>
         <!--end #content-top-->
-     
-        
+             
         <!--#footer-->
                 <?php include("footer.php");?>
         <!--end #footer -->

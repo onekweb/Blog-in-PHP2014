@@ -11,6 +11,10 @@ if(!isset($_SESSION['id'])){
     $posts_count = $db->query("SELECT * FROM posts");
     //Comments count
     $comments_count = $db->query("SELECT * FROM comments");
+    //Get blogpost
+    $query1= $db->prepare("SELECT posted_id, title, LEFT(body, 200) AS body, category FROM posts INNER JOIN categories ON categories.category_id = posts.category_id order by posted_id desc")or die("error"); 
+    $query1->execute();
+    $query1->bind_result($posted_id, $title, $body, $category);
 ?>
 
 
@@ -23,8 +27,7 @@ if(!isset($_SESSION['id'])){
 </head>
 <body>
     <!--#container-->
-    <div id="container">
-        
+    <div id="container">      
         <!--#head-->
          <?php include("head.php");?>
         <!--end head-->
@@ -50,14 +53,15 @@ if(!isset($_SESSION['id'])){
                     <li><a href="#">Delete post</a></li>
                     <li><a href="#">Update post</a></li>
                 </ul>
-                
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet felis orci. Nulla justo tortor, congue in augue vel,
-                placerat pellentesque est. Quisque et consectetur nisl. Nulla facilisi. Proin id rutrum nulla
-                </p>
-                 <p>Aliquam pretium quam eleifend augue iaculis, id imperdiet velit venenatis. Curabitur porttitor magna vel dui vulputate, ac mattis erat vehicula.
-                    Aliquam pretium quam eleifend augue iaculis, id imperdiet velit venenatis. Curabitur porttitor magna vel dui vulputate, ac mattis erat vehicula.
-                 </p>
+                <h2>My lateste blog post</h2>
+                    <?php  while($query1->fetch()):
+                    $lastspace = strrpos($body, ' ');
+                    ?>
+                    <h2><?php echo $title?></h2>
+                    <p><?php echo substr($body, 0, $lastspace)."<a href='post.php?id=$posted_id'>..</a>"?></p>
+                    <p>Category:<?php echo $category?></p>
+                    <?php endwhile?>
+
             </div>
         <!--end #content-top-->
 
